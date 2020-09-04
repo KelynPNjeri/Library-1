@@ -41,18 +41,18 @@ addBookToLibrary();
 
 for (let i = 0; i < myLibrary.length; i++){
     let book = document.createElement('div');
-    book.class = 'book';
+    book.className = 'book';
 
     let booktitle = document.createElement('h4');
-    booktitle.textContent = `${myLibrary[i].title}`;
+    booktitle.textContent = `Title: ${myLibrary[i].title}`;
     book.appendChild(booktitle);
 
     let bookauthor = document.createElement('p');
-    bookauthor.textContent = `${myLibrary[i].author}`;
+    bookauthor.textContent = `Author: ${myLibrary[i].author}`;
     book.appendChild(bookauthor);
 
     let description = document.createElement('p');
-    description.textContent = `${myLibrary[i].desciption}`;
+    description.textContent = `Description: ${myLibrary[i].description}`;
     book.appendChild(description);
 
     let bookactions = document.createElement('div');
@@ -61,15 +61,14 @@ for (let i = 0; i < myLibrary.length; i++){
 
     let read = document.createElement('div');
     read.className = 'stat';
-    read.textContent = `${myLibrary[i].status}`;
+    read.textContent = `Status: ${myLibrary[i].status}`;
     bookactions.appendChild(read);
 
     let button = document.createElement('button');
-    button.textContent = 'Remove Book';
+    button.textContent = 'Remove';
     button.className = 'remove-book';
     bookactions.appendChild(button);
-
-    document.body.appendChild(book);
+    document.getElementById('target').appendChild(book);
 }
 
 
