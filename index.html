@@ -18,67 +18,10 @@
         <button class="new-book">Add book</button>
     </div>
     <main class="books-display" id="target">
-        <script>
-            let myLibrary = [];
 
-function Book(title,author,isbn,description,pages,status) {
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn;
-    this.description = description;
-    this.pages = pages
-    this.status = status
-}
-
-function addBookToLibrary() {
-    let item = new Book("Superstition","Person",12345,"Somenice description",345,"unread");
-    let item2 = new Book("Superstition","Person",12345,"Somenice description",345,"unread");
-    myLibrary.push(item)
-    myLibrary.push(item2);
-    
-}
-addBookToLibrary();
-
-for (let i = 0; i < myLibrary.length; i++){
-    let book = document.createElement('div');
-    book.className = 'book';
-
-    let booktitle = document.createElement('h4');
-    booktitle.textContent = `Title: ${myLibrary[i].title}`;
-    book.appendChild(booktitle);
-
-    let bookauthor = document.createElement('p');
-    bookauthor.textContent = `Author: ${myLibrary[i].author}`;
-    book.appendChild(bookauthor);
-
-    let description = document.createElement('p');
-    description.textContent = `Description: ${myLibrary[i].description}`;
-    book.appendChild(description);
-
-    let bookactions = document.createElement('div');
-    bookactions.className = 'book-detail';
-    book.appendChild(bookactions);
-
-    let read = document.createElement('div');
-    read.className = 'stat';
-    read.textContent = `Status: ${myLibrary[i].status}`;
-    bookactions.appendChild(read);
-
-    let button = document.createElement('button');
-    button.textContent = 'Remove';
-    button.className = 'remove-book';
-    bookactions.appendChild(button);
-    document.getElementById('target').appendChild(book);
-}
-
-
-
-
-            // add div to the document
-       
-        </script>
     </main>
-</body>
 
+</body>
+<script src="assets/js/library.js"></script>
 
 </html>

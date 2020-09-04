@@ -18,35 +18,42 @@ function addBookToLibrary() {
 }
 
 
-for (let i = 0; i < myLibrary.length; i++){
-    let book = document.createElement('div');
-    book.class = 'book';
+function displayBooks(array) {
+    for (let i = 0; i < myLibrary.length; i++){
+        let book = document.createElement('div');
+        book.className = 'book';
+    
+        let booktitle = document.createElement('h4');
+        booktitle.textContent = `Title: ${array[i].title}`;
+        book.appendChild(booktitle);
+    
+        let bookauthor = document.createElement('p');
+        bookauthor.textContent = `Author: ${array[i].author}`;
+        book.appendChild(bookauthor);
+    
+        let description = document.createElement('p');
+        description.textContent = `Description: ${array[i].description}`;
+        book.appendChild(description);
+    
+        let bookactions = document.createElement('div');
+        bookactions.className = 'book-detail';
+        book.appendChild(bookactions);
+    
+        let read = document.createElement('div');
+        read.className = 'stat';
+        read.textContent = `Status: ${array[i].status}`;
+        bookactions.appendChild(read);
+    
+        let button = document.createElement('button');
+        button.textContent = 'Remove';
+        button.className = 'remove-book';
+        bookactions.appendChild(button);
+    
+        document.getElementById('target').appendChild(book);
+    }
 
-    let booktitle = document.createElement('h4');
-    booktitle.textContent = `${myLibrary[i].title}`;
-    book.appendChild(booktitle);
-
-    let bookauthor = document.createElement('p');
-    bookauthor.textContent = `${myLibrary[i].author}`;
-    book.appendChild(bookauthor);
-
-    let description = document.createElement('p');
-    description.textContent = `${myLibrary[i].desciption}`;
-    book.appendChild(description);
-
-    let bookactions = document.createElement('div');
-    bookactions.className = 'book-detail';
-    book.appendChild(bookactions);
-
-    let read = document.createElement('div');
-    read.className = 'stat';
-    read.textContent = `${myLibrary[i].status}`;
-    bookactions.appendChild(read);
-
-    let button = document.createElement('button');
-    button.textContent = 'Remove Book';
-    button.className = 'remove-book';
-    bookactions.appendChild(button);
 }
 
 
+addBookToLibrary();
+displayBooks(myLibrary);
