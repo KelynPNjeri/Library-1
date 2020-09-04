@@ -16,5 +16,37 @@ function addBookToLibrary() {
     myLibrary.push(item2);
     
 }
-addBookToLibrary();
-console.log(myLibrary.length);
+
+
+for (let i = 0; i < myLibrary.length; i++){
+    let book = document.createElement('div');
+    book.class = 'book';
+
+    let booktitle = document.createElement('h4');
+    booktitle.textContent = `${myLibrary[i].title}`;
+    book.appendChild(booktitle);
+
+    let bookauthor = document.createElement('p');
+    bookauthor.textContent = `${myLibrary[i].author}`;
+    book.appendChild(bookauthor);
+
+    let description = document.createElement('p');
+    description.textContent = `${myLibrary[i].desciption}`;
+    book.appendChild(description);
+
+    let bookactions = document.createElement('div');
+    bookactions.className = 'book-detail';
+    book.appendChild(bookactions);
+
+    let read = document.createElement('div');
+    read.className = 'stat';
+    read.textContent = `${myLibrary[i].status}`;
+    bookactions.appendChild(read);
+
+    let button = document.createElement('button');
+    button.textContent = 'Remove Book';
+    button.className = 'remove-book';
+    bookactions.appendChild(button);
+}
+
+
