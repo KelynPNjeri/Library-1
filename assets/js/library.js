@@ -55,6 +55,7 @@ function displayBooks(array) {
     let button = document.createElement("button");
     button.textContent = "Remove";
     button.className = "remove-book";
+    button.id = "remove";
     bookactions.appendChild(button);
 
     document.getElementById("target").appendChild(book);
@@ -67,5 +68,14 @@ addbookbtn.addEventListener("click", () => {
   form.style.display = "block";
   form.style.position = "absolute";
 });
-
+function deleteBook() {
+  let removebook = document.getElementsByClassName("remove-book");
+  for (var i = 0; i < removebook.length; i++) {
+    removebook[i].addEventListener("click", function (e) {
+      e.preventDefault();
+      e.target.closest("div.book").remove();
+    });
+  }
+}
+deleteBook();
 displayBooks(myLibrary);
