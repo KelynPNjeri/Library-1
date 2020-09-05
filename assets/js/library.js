@@ -56,6 +56,7 @@ function displayBooks(array) {
     button.textContent = "Remove";
     button.className = "remove-book";
     button.id = "remove";
+    button.onclick = function() {button.closest("div.book").remove()};
     bookactions.appendChild(button);
 
     document.getElementById("target").appendChild(book);
