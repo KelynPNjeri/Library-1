@@ -8,6 +8,14 @@ function Book(title, author, isbn, description, pages, status) {
   this.pages = pages;
   this.status = status;
 }
+Book.prototype.changeReadStatus = function () {
+  //Changes the book at the OBJ level in the array
+  if (this.status.includes("Read")) {
+    this.status = "Unread";
+  } else if (this.status.includes("Unread")) {
+    this.status = "Read";
+  }
+};
 
 function addBookToLibrary() {
   let addedbook = new Book(
@@ -16,7 +24,7 @@ function addBookToLibrary() {
     document.getElementById("input-isbn").value,
     document.getElementById("input-description").value,
     document.getElementById("input-pages").value,
-    "unread"
+    "Unread"
   );
 
   myLibrary.push(addedbook);
@@ -47,17 +55,31 @@ function displayBooks(array) {
     bookactions.className = "book-detail";
     book.appendChild(bookactions);
 
-    let read = document.createElement("div");
+    var read = document.createElement("div");
     read.className = "stat";
     read.textContent = `Status: ${array[i].status}`;
-    bookactions.appendChild(read);
 
-    let button = document.createElement("button");
-    button.textContent = "Remove";
-    button.className = "remove-book";
-    button.id = "remove";
-    button.onclick = function() {button.closest("div.book").remove()};
-    bookactions.appendChild(button);
+    bookactions.appendChild(read);
+    let buttonRead = document.createElement("button");
+    buttonRead.textContent = "Change Status";
+    buttonRead.className = "status-btn";
+    buttonRead.onclick = () => {
+      array[i].changeReadStatus();
+      let modifiedstatus = document.createElement("div");
+      modifiedstatus.className = "stat";
+      modifiedstatus.textContent = `Status: ${array[i].status}`;
+      bookactions.replaceChild(modifiedstatus, read);
+    };
+    bookactions.appendChild(buttonRead);
+
+    let buttonRemove = document.createElement("button");
+    buttonRemove.textContent = "Remove";
+    buttonRemove.className = "remove-book";
+    buttonRemove.id = "remove";
+    buttonRemove.onclick = function () {
+      button.closest("div.book").remove();
+    };
+    bookactions.appendChild(buttonRemove);
 
     document.getElementById("target").appendChild(book);
   }
@@ -69,14 +91,7 @@ addbookbtn.addEventListener("click", () => {
   form.style.display = "block";
   form.style.position = "absolute";
 });
-function deleteBook() {
-  let removebook = document.getElementsByClassName("remove-book");
-  for (var i = 0; i < removebook.length; i++) {
-    removebook[i].addEventListener("click", function (e) {
-      e.preventDefault();
-      e.target.closest("div.book").remove();
-    });
-  }
-}
-deleteBook();
-displayBooks(myLibrary);
+
+let p = new Book("test", "joe", 123, "some text", 123, "Read");
+p.changeReadStatus();
+console.log(p);

@@ -27,7 +27,7 @@ body {
     border-radius: 8px;
     padding: 1em;
 }
-.new-book, .remove-book {
+.new-book, .remove-book,.read-book {
     width: 80px;
 	height: 35px;
 	left: 12px;
@@ -91,12 +91,7 @@ label {
 
 /* Other */
 
-* { box-sizing: border-box; }
 
-html {
-  -webkit-font-smoothing: antialiased;
-  padding: 1rem;
-}
 
 .form-container {
   max-width: 600px;
