@@ -8,7 +8,7 @@ function Book(title, author, isbn, description, pages, status) {
   this.pages = pages;
   this.status = status;
 }
-Book.prototype.changeReadStatus = () => {
+Book.prototype.changeReadStatus = function () {
   if (this.status.includes('Read')) {
     this.status = 'Unread';
   } else if (this.status.includes('Unread')) {
@@ -38,6 +38,7 @@ function displayBooks(array) {
 
     const read = document.createElement('div');
     read.className = 'stat';
+    read.id = 'status'
     read.textContent = `Status: ${array[i].status}`;
 
     bookactions.appendChild(read);
@@ -46,10 +47,8 @@ function displayBooks(array) {
     buttonRead.className = 'status-btn';
     buttonRead.onclick = () => {
       array[i].changeReadStatus();
-      const modifiedstatus = document.createElement('div');
-      modifiedstatus.className = 'stat';
-      modifiedstatus.textContent = `Status: ${array[i].status}`;
-      bookactions.replaceChild(modifiedstatus, read);
+      modifiedstatus = document.getElementById('status');
+      modifiedstatus.innerHTML = `Status: ${array[i].status}`;
     };
     bookactions.appendChild(buttonRead);
 
@@ -59,6 +58,7 @@ function displayBooks(array) {
     buttonRemove.id = 'remove';
     buttonRemove.onclick = () => {
       buttonRemove.closest('div.book').remove();
+      array.splice(i,1);
     };
     bookactions.appendChild(buttonRemove);
 
@@ -90,3 +90,5 @@ addbookbtn.addEventListener('click', () => {
   form.style.display = 'block';
   form.style.position = 'absolute';
 });
+
+
