@@ -8,7 +8,7 @@ function Book(title, author, isbn, description, pages, status) {
   this.pages = pages;
   this.status = status;
 }
-Book.prototype.changeReadStatus = function () {
+Book.prototype.changeReadStatus = function change() {
   if (this.status.includes('Read')) {
     this.status = 'Unread';
   } else if (this.status.includes('Unread')) {
@@ -38,7 +38,7 @@ function displayBooks(array) {
 
     const read = document.createElement('div');
     read.className = 'stat';
-    read.id = 'status'
+    read.id = 'status';
     read.textContent = `Status: ${array[i].status}`;
 
     bookactions.appendChild(read);
@@ -47,7 +47,7 @@ function displayBooks(array) {
     buttonRead.className = 'status-btn';
     buttonRead.onclick = () => {
       array[i].changeReadStatus();
-      modifiedstatus = document.getElementById('status');
+      const modifiedstatus = document.getElementById('status');
       modifiedstatus.innerHTML = `Status: ${array[i].status}`;
     };
     bookactions.appendChild(buttonRead);
@@ -58,7 +58,7 @@ function displayBooks(array) {
     buttonRemove.id = 'remove';
     buttonRemove.onclick = () => {
       buttonRemove.closest('div.book').remove();
-      array.splice(i,1);
+      array.splice(i, 1);
     };
     bookactions.appendChild(buttonRemove);
 
@@ -90,5 +90,3 @@ addbookbtn.addEventListener('click', () => {
   form.style.display = 'block';
   form.style.position = 'absolute';
 });
-
-
