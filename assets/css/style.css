@@ -15,7 +15,6 @@ body {
   background-color: #4d8cf1;
   text-align: center;
   height: 5vh;
-
 }
 
 .books-display {
@@ -40,7 +39,7 @@ body {
   height: 35px;
   left: 12px;
   top: 12px;
-  font-family: Poppins, 'san-serif';
+  font-family: 'Poppins', san-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
@@ -68,35 +67,33 @@ body {
 select,
 textarea {
   display: block;
-  padding: .5rem;
+  padding: 0.5rem;
   background: transparent;
   width: 100%;
   max-width: 100%;
   border: 1px solid #cdcdcd;
   border-radius: 4px;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
-
-[type=text]:focus,
-[type=url]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border: 1px solid #1E6BD6;
-}
-
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQVQoFY2QMQqEMBBFv7ERa/EMXkGw11K8QbDXzuN4BHv7QO6ifUgj7v4UAdlVM8Uwf+b9YZJISnlqrfEUZVlinucnBGKaJgghbiHOyLyFKIoCbdvecpyReYvo/Ma2bajrGtbaC58kCdZ1RZ7nl/4/4d5EsO/7nzl7IUtodBexMMagaRrs+06JLMvcNWmaOv2W/C/TMAyD58dxROgSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==) 100% no-repeat;
   line-height: 1
 }
+[type=text]:focus,
+[type=url]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #1e6bd6;
+}
 
 label {
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 0.9rem;
   display: block;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 /* Other */
@@ -118,14 +115,14 @@ label {
   vertical-align: middle;
   white-space: nowrap;
   cursor: pointer;
-  margin: .25rem 0;
-  padding: .5rem 1rem;
-  border: 1px solid #1E6BD6;
+  margin: 0.25rem 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid #1e6bd6;
   border-radius: 5px;
-  background: #1E6BD6;
+  background: #1e6bd6;
   color: white;
   font-weight: 600;
   text-decoration: none;
   font-family: sans-serif;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
