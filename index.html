@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLibrary</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h5>MyLibrary</h5>
+        </nav>
+    </header>
+    <div class="add-book">
+        <button class="new-book" id="add-btn">Add book</button>
+    </div>
+    <main class="books-display" id="target">
+
+    </main>
+    <div class="form-container" id="form-container">
+        <form onsubmit="return addBookToLibrary()">
+            <label for="title">Book Title</label>
+            <input type="text" placeholder="Title" id="input-title" autofocus required>
+            <label for="author">Author</label>
+            <input type="text" placeholder="Author" id="input-author" required>
+            <label for="isbn">ISBN</label>
+            <input type="number" placeholder="isbn" id="input-isbn" required>
+            <label for="description">Description</label>
+            <textarea cols="30" rows="10" placeholder="Description" id="input-description"></textarea>
+            <label for="pages">Pages</label>
+            <input type="number" placeholder="pages" id="input-pages" required>
+            <input type="submit" value="submit" id="submit" >
+        </form>
+    </div>
+    
+</body>
+<script src="assets/js/library.js"></script>
+
+</html>
